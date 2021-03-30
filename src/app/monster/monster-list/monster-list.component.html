@@ -1,0 +1,42 @@
+<!-- <table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Image</th>
+      <th>Detail</th>
+      <th>Spell</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let monster of monsters">
+      <td>{{ monster.name }}</td>
+      <td>
+        <img src="{{ monster.image }}" alt="">
+      </td>
+      <td>{{ monster.detail }}</td>
+      <td>
+        <span *ngFor="let item of monster.spells">{{item.name}} /</span>
+      </td>
+      <td>
+        <a class="btn btn-warning" href="">Sửa</a>
+        <button class="btn btn-danger">Xóa</button>
+      </td>
+      <app-monster-unit [monster-data]="monster"></app-monster-unit>
+    </tr>
+  </tbody>
+</table> -->
+<div class="row">
+  <a routerLink="/add" class="btn btn-primary mb-3">Thêm mới</a>
+</div>
+<div class="row">
+    <div class="card col-3" *ngFor="let monster of monsters" style="width: 18rem;" >
+      <div class="col-12">
+        <app-monster-unit 
+          [monster-data]="monster"
+          (deleted)="removeMonster($event)"
+        ></app-monster-unit>
+      </div>
+    </div>
+</div>
+

@@ -1,0 +1,34 @@
+<h3>Cập nhật Monster</h3>
+<form #itemForm="ngForm" (ngSubmit)="submit(itemForm)">
+    <div class="form-group">
+        <label for="">Id</label>
+        <input #id="ngModel"  class="form-control" type="text" name="id" ngModel>
+    </div>
+    <div class="form-group">
+        <label for="">Name</label>
+        <input #name="ngModel"  class="form-control" type="text" name="name" ngModel>
+    </div>
+    <div class="form-group">
+        <label for="">Image</label>
+        <input #image="ngModel"  class="form-control" type="text" name="image" ngModel>
+    </div>
+    <div class="form-group">
+        <label for="">Detail</label>
+        <input #detail="ngModel"  class="form-control" type="text" name="detail" ngModel>
+    </div>
+    <div class="form-group">
+        <label for="">Spell</label>
+        <div *ngFor="let spell of spells">
+            <input
+                (click)="updateSpell($event)"
+                name="spells[]"
+                value="{{ spell.id }}"
+
+            type="checkbox">
+            <label class="m-left" for="">{{ spell.name }}</label>
+        </div>
+    </div>
+    <div class="form-group">
+        <button class="btn btn-success" type="submit">Cập nhật</button>
+    </div>
+</form>

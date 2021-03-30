@@ -1,0 +1,27 @@
+<!-- <td>{{ monsterData.name }}</td>
+<td>
+    <img src="{{ monsterData.image }}" alt="">
+</td>
+<td>{{ monsterData.detail }}</td>
+<td>
+    <span *ngFor="let item of monsterData.spells">{{item.name}} /</span>
+</td>
+<td>
+    <a class="btn btn-warning" href="">Sửa</a>
+    <button class="btn btn-danger">Xóa</button>
+</td> -->
+<img class="card-img-top" src="{{monsterData.image}}" alt="Card image cap">
+<div class="card-body">
+    <h5 class="card-title">{{monsterData.name}}</h5>
+    <p class="card-text">{{monsterData.detail}}</p>
+    <p>
+        <strong>Phép thuật:</strong> <br>
+        <span *ngFor="let spell of monsterData.spells">
+            <img class="icon" src="{{ spell.icon}}" alt=""> 
+            {{ spell.name }}
+            <br>
+        </span>
+    </p>
+    <a [routerLink]="['/update', monsterData.id]" class="btn btn-warning">Sửa</a>
+    <button class="btn btn-danger" (click)="removeMonster()">Xóa</button>
+</div>
